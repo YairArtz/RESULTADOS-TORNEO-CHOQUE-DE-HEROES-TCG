@@ -308,6 +308,16 @@
       btn.disabled = false;
       btn.innerHTML = "🏆 &nbsp;PUBLICAR RESULTADOS";
     }
+
+    // Prellenar storeid desde URL si viene desde perfil de tienda
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var sid = params.get('storeid');
+      if (sid) {
+        var el = document.getElementById('input-storeid');
+        if (el) { el.value = sid; el.readOnly = true; el.style.opacity = '.7'; }
+      }
+    })();
   </script>
 </body>
 </html>
